@@ -68,7 +68,7 @@ export default function Home() {
             </motion.h1>
 
             <motion.p variants={fadeIn} className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              Investment Decision Lab lets you build rule-based ETF portfolios from scratch, compare them side by side, and stress-test them against historical crises. Set your risk appetite, horizon, and exchange preferences — then get geographic breakdowns, risk metrics (expected return, volatility, Sharpe ratio, max drawdown), scenario stress tests (2008, COVID, 2022 rates shock), and Monte Carlo simulations. Every decision comes with a plain-language explanation. Available in English and German.
+              Investment Decision Lab helps you construct, compare, and understand ETF portfolios tailored to your risk appetite, investment horizon, and preferred exchange. Built for Swiss and European investors who demand clarity over complexity.
             </motion.p>
 
             <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-4">
