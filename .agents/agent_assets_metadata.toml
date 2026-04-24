@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "8sIKV6jYvSF6L2ugOuZmy"
+uri = "file://artifacts/landing/public/hero-data.png"
+type = "image"
+title = "Abstract financial data visualization"
+
+[[generated]]
+id = "pZ4utAfbmwWj2T43fEjZg"
+uri = "file://artifacts/landing/public/scenario-ui.png"
+type = "image"
+title = "Scenario analysis interface mockup"
