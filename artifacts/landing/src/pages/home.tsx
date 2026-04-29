@@ -347,9 +347,19 @@ export default function Home() {
               <div className="relative shadow-2xl shadow-primary/10">
                 <div className="rounded-lg border border-border overflow-hidden">
                   <img
-                    src={activeTab === "build" ? "/app-preview.png" : "/app-preview-2.png"}
-                    alt={activeTab === "build" ? "Build Portfolio view" : "Compare Portfolios — Monte Carlo and risk metrics"}
-                    className="w-full h-auto object-cover"
+                    src="/app-preview.webp"
+                    alt="Build Portfolio view"
+                    width={1568}
+                    height={1020}
+                    className={`w-full h-auto object-cover${activeTab !== "build" ? " hidden" : ""}`}
+                  />
+                  <img
+                    src="/app-preview-2.webp"
+                    alt="Compare Portfolios — Monte Carlo and risk metrics"
+                    width={1049}
+                    height={1015}
+                    loading="lazy"
+                    className={`w-full h-auto object-cover${activeTab !== "compare" ? " hidden" : ""}`}
                   />
                 </div>
                 {activeTab === "build" && (
