@@ -17,3 +17,15 @@ id = "i-LfRFLuY_jWQNfEoVysg"
 uri = "file://artifacts/landing/public/logo.svg"
 type = "image"
 title = "Investment Decision Lab Logo (SVG)"
+
+[[outputs]]
+id = "nuuHdsoPuX545UqiINQWP"
+uri = "file://artifacts/landing/public/logo-icon-transparent.png"
+type = "image"
+title = "Logo icon — transparent PNG"
+
+[[outputs]]
+id = "_7ZnTHusyjlNu8y7wUwYa"
+uri = "file://artifacts/landing/public/logo-icon.svg"
+type = "image"
+title = "Logo icon — SVG (scalable)"
