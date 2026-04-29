@@ -30,7 +30,10 @@ export default function Home() {
             <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
               <Activity className="w-4 h-4 text-background" />
             </div>
-            <span className="font-bold text-base tracking-tight">Investment Decision Lab</span>
+            <div>
+              <span className="font-bold text-base tracking-tight">Investment Decision Lab</span>
+              <span className="hidden md:inline ml-2 text-xs text-muted-foreground">A BCon Initiative</span>
+            </div>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
@@ -352,6 +355,7 @@ export default function Home() {
             <div className="flex items-center gap-2 mb-4 md:mb-0">
               <Activity className="w-4 h-4" />
               <span className="font-bold tracking-tight">Investment Decision Lab</span>
+              <span className="text-xs ml-2">A BCon Initiative</span>
               <span className="ml-4">&copy; {new Date().getFullYear()}</span>
             </div>
             <div className="flex gap-6">
