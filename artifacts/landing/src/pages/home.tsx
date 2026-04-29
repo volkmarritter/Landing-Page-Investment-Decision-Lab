@@ -38,7 +38,7 @@ export default function Home() {
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
             <a href="#output" className="hover:text-foreground transition-colors">Output</a>
-            <a href="#methodology" className="hover:text-foreground transition-colors">Methodology</a>
+            <a href="https://www.bicon.co/?tab=methodology" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Methodology</a>
           </div>
           <div className="flex items-center gap-3">
             <a href={`${APP_URL}/#book`} target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
@@ -85,7 +85,7 @@ export default function Home() {
                   Open the Lab <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </a>
-              <a href="#methodology">
+              <a href="https://www.bicon.co/?tab=methodology" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 rounded-sm text-base border-border hover:bg-secondary">
                   View Methodology
                 </Button>
@@ -305,7 +305,7 @@ export default function Home() {
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
               Every recommendation is backed by a published methodology — covering capital market assumptions, fixed correlation matrices, ETF selection criteria, exchange preferences, and rebalancing logic. Open the Methodology tab to read exactly how your portfolio was constructed.
             </p>
-            <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+            <a href="https://www.bicon.co/?tab=methodology" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="rounded-sm border-border gap-2">
                 <BookOpen className="w-4 h-4" /> Read the Methodology
               </Button>
@@ -359,7 +359,7 @@ export default function Home() {
               <span className="ml-4">&copy; {new Date().getFullYear()}</span>
             </div>
             <div className="flex gap-6">
-              <a href={`${APP_URL}`} className="hover:text-foreground transition-colors">Methodology</a>
+              <a href="https://www.bicon.co/?tab=methodology" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Methodology</a>
               <a href={`${APP_URL}`} className="hover:text-foreground transition-colors">Book a Call</a>
             </div>
           </div>
