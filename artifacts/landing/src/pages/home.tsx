@@ -105,6 +105,12 @@ export default function Home() {
               alt="Investment Decision Lab — portfolio comparison and risk analysis"
               className="w-full h-auto object-cover"
             />
+            <div className="absolute top-4 left-4 px-3 py-2 rounded-md bg-background/90 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg">
+              Monte Carlo Simulation
+            </div>
+            <div className="absolute bottom-4 right-4 px-3 py-2 rounded-md bg-background/90 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg">
+              Full Look-Through
+            </div>
           </motion.div>
         </div>
       </section>
