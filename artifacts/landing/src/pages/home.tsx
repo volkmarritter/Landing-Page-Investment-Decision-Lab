@@ -107,11 +107,11 @@ export default function Home() {
                 className="w-full h-auto object-cover"
               />
             </div>
-            <div className="absolute top-[-14px] left-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
+            <div className="absolute top-[-14px] right-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
               <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
               Monte Carlo Simulation
             </div>
-            <div className="absolute bottom-[-14px] right-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
+            <div className="absolute bottom-[-14px] left-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
               <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
               Full Look-Through
             </div>
