@@ -41,7 +41,7 @@ export default function Home() {
             <a href="https://www.bicon.co/?tab=methodology" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Methodology</a>
           </div>
           <div className="flex items-center gap-3">
-            <a href={`${APP_URL}/#book`} target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
+            <a href="mailto:info@bicon.li" className="hidden md:inline-flex">
               <Button variant="ghost" className="text-sm gap-2">
                 <Phone className="w-4 h-4" /> Book a call
               </Button>
@@ -330,7 +330,7 @@ export default function Home() {
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               Book a 30-minute call with the BICon team to walk through the tool, discuss your specific portfolio requirements, or explore how the methodology applies to your situation.
             </p>
-            <a href={`${APP_URL}`} target="_blank" rel="noopener noreferrer">
+            <a href="mailto:info@bicon.li">
               <Button className="rounded-sm gap-2 h-12 px-8">
                 <Phone className="w-4 h-4" /> Book a 30-min call
               </Button>
@@ -362,7 +362,7 @@ export default function Home() {
             </div>
             <div className="flex gap-6">
               <a href="https://www.bicon.co/?tab=methodology" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Methodology</a>
-              <a href={`${APP_URL}`} className="hover:text-foreground transition-colors">Book a Call</a>
+              <a href="mailto:info@bicon.li" className="hover:text-foreground transition-colors">Book a Call</a>
             </div>
           </div>
         </div>
