@@ -271,7 +271,9 @@ export default function Home() {
                 { icon: TrendingUp, title: "Rules-based", desc: "Every portfolio follows a consistent, documented set of construction rules — not discretionary judgement." },
                 { icon: Globe, title: "European focus (CH · EU · UK)", desc: "Optimised for Swiss, EU, and UK investors — with home-bias multipliers and withholding-tax drag per base currency." },
                 { icon: BarChart2, title: "Scenario-tested", desc: "Portfolios are stress-tested against three major historical crises before you commit to a structure." },
-                { icon: Target, title: "Coherence-validated", desc: "Inputs are checked for structural coherence before any portfolio is generated. No silent errors." }
+                { icon: Target, title: "Coherence-validated", desc: "Inputs are checked for structural coherence before any portfolio is generated. No silent errors." },
+                { icon: TrendingUp, title: "Monte Carlo Simulation", desc: "Project portfolio outcomes across thousands of simulated paths. Visualise return distributions, drawdown risk, and probability of meeting your investment goals." },
+                { icon: Layers, title: "Full Look-Through", desc: "Allocations are decomposed through ETF holdings to the underlying asset class and geographic exposure — pie charts and breakdowns reflect true portfolio composition." }
               ].map((card, i) => (
                 <motion.div
                   key={i}
