@@ -132,7 +132,7 @@ export default function Home() {
             {[
               {
                 title: "Portfolio Managers",
-                desc: "Rapidly prototype allocation structures, validate inputs against coherence checks, and export institutional-grade PDF reports for investment committees."
+                desc: "Rapidly prototype allocation structures, validate inputs against coherence checks, and export institutional-grade PDF reports."
               },
               {
                 title: "Independent Advisors",
