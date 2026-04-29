@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import { ArrowRight, Activity, BarChart2, Layers, ChevronRight, Target, BookOpen, GitCompare, HelpCircle, TrendingUp, Globe, FileText, Phone } from "lucide-react";
+import { ArrowRight, Activity, BarChart2, Layers, ChevronRight, Target, BookOpen, GitCompare, HelpCircle, TrendingUp, Globe, FileText, Phone, SlidersHorizontal, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const fadeIn = {
@@ -422,22 +422,30 @@ export default function Home() {
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{t.howItWorks.heading}</h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t.howItWorks.subheading}</p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 relative">
-              {/* Connecting lines (desktop only) */}
-              <div className="hidden md:block absolute top-10 left-[calc(33.3%-1rem)] right-[calc(33.3%-1rem)] h-px bg-gradient-to-r from-primary/30 via-primary/60 to-primary/30 z-0" />
-              {t.howItWorks.steps.map((step, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeIn}
-                  className="relative z-10 flex flex-col items-center text-center p-8 rounded-lg border border-border bg-card/40"
-                >
-                  <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mb-6">
-                    <span className="text-primary font-bold text-lg">{step.num}</span>
+            <div className="flex flex-col md:flex-row items-stretch gap-4 md:gap-0">
+              {t.howItWorks.steps.map((step, i) => {
+                const StepIcon = [SlidersHorizontal, Cpu, BarChart2][i];
+                return (
+                  <div key={i} className="flex flex-col md:flex-row items-stretch flex-1 min-w-0">
+                    <motion.div
+                      variants={fadeIn}
+                      className="flex flex-col items-center text-center p-8 rounded-lg border border-border bg-card/40 flex-1"
+                    >
+                      <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mb-3">
+                        <StepIcon className="w-6 h-6 text-primary" />
+                      </div>
+                      <span className="text-xs font-bold text-primary/60 tracking-widest mb-3">{step.num}</span>
+                      <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+                    </motion.div>
+                    {i < 2 && (
+                      <div className="flex items-center justify-center px-2 py-4 md:py-0 shrink-0">
+                        <ArrowRight className="w-6 h-6 text-primary/40 rotate-90 md:rotate-0" />
+                      </div>
+                    )}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
-                </motion.div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
         </div>
