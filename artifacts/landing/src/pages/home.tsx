@@ -397,7 +397,11 @@ export default function Home() {
             </Button>
           </a>
 
-          <div className="mt-24 flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border/50 text-sm text-muted-foreground">
+          <p className="mt-16 text-xs text-muted-foreground/50 italic max-w-2xl mx-auto leading-relaxed">
+            Investment Decision Lab is for educational and illustration purposes only. All returns, volatilities, correlations, and stress scenarios are static, rules-based estimates — they do not reflect live market data and do not constitute investment advice or a solicitation to buy or sell any financial instrument.
+          </p>
+
+          <div className="mt-8 flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border/50 text-sm text-muted-foreground">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
               <Activity className="w-4 h-4" />
               <span className="font-bold tracking-tight">Investment Decision Lab</span>
