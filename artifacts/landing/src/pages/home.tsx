@@ -217,9 +217,9 @@ export default function Home() {
                 <Phone className="w-4 h-4" /> {t.nav.bookCall}
               </Button>
             </a>
-            <a href={appUrl} target="_blank" rel="noopener noreferrer">
+            <motion.a href={appUrl} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
               <Button className="rounded-sm font-medium">{t.nav.openLab}</Button>
-            </a>
+            </motion.a>
           </div>
         </div>
       </nav>
@@ -253,11 +253,11 @@ export default function Home() {
               </motion.p>
 
               <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-start gap-4">
-                <a href={appUrl} target="_blank" rel="noopener noreferrer">
+                <motion.a href={appUrl} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} animate={{ boxShadow: ["0 0 0px 0px hsl(var(--primary)/0)", "0 0 18px 4px hsl(var(--primary)/0.35)", "0 0 0px 0px hsl(var(--primary)/0)"] }} transition={{ scale: { type: "spring", stiffness: 400, damping: 17 }, boxShadow: { duration: 2.4, repeat: Infinity, ease: "easeInOut" } }} className="rounded-sm">
                   <Button size="lg" className="w-full sm:w-auto h-12 px-8 rounded-sm text-base">
                     {t.nav.openLab} <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                </a>
+                </motion.a>
                 <a href={methodologyUrl} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 rounded-sm text-base border-border hover:bg-secondary">
                     {t.hero.viewMethodology}
@@ -373,11 +373,11 @@ export default function Home() {
                 ))}
               </ul>
               <div className="flex items-center gap-3">
-                <a href={appUrl} target="_blank" rel="noopener noreferrer">
+                <motion.a href={appUrl} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                   <Button className="rounded-sm gap-2">
                     <FileText className="w-4 h-4" /> {t.output.tryNow}
                   </Button>
-                </a>
+                </motion.a>
               </div>
             </motion.div>
 
@@ -435,11 +435,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-24 relative z-10 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">{t.footer.heading}</h2>
           <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">{t.footer.desc}</p>
-          <a href={appUrl} target="_blank" rel="noopener noreferrer">
+          <motion.a href={appUrl} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} animate={{ boxShadow: ["0 0 0px 0px hsl(var(--primary)/0)", "0 0 24px 6px hsl(var(--primary)/0.35)", "0 0 0px 0px hsl(var(--primary)/0)"] }} transition={{ scale: { type: "spring", stiffness: 400, damping: 17 }, boxShadow: { duration: 2.4, repeat: Infinity, ease: "easeInOut" } }} className="inline-block rounded-sm">
             <Button size="lg" className="h-14 px-10 text-lg rounded-sm gap-2">
               {t.footer.btn} <ArrowRight className="w-5 h-5" />
             </Button>
-          </a>
+          </motion.a>
 
           <p className="mt-16 text-xs text-muted-foreground/50 italic max-w-2xl mx-auto leading-relaxed">
             {t.footer.disclaimer}
