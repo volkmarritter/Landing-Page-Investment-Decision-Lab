@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 import { ArrowRight, Activity, BarChart2, Layers, ChevronRight, Target, BookOpen, GitCompare, HelpCircle, TrendingUp, Globe, FileText, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -10,13 +10,31 @@ const fadeIn = {
 
 const staggerContainer = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
 const APP_URL = "https://www.bicon.co";
+
+function StatCounter({ target, duration = 2 }: { target: number; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    let startTime: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [isInView, target, duration]);
+
+  return <span ref={ref}>{count.toLocaleString()}</span>;
+}
 
 const translations = {
   en: {
@@ -38,11 +56,29 @@ const translations = {
       badgeCVar: "CVaR & Drawdown",
       badgeSideBySide: "Side-by-Side Comparison",
     },
+    stats: {
+      items: [
+        { value: 12, label: "Analytical Modules" },
+        { value: 2000, label: "Monte Carlo Paths" },
+        { value: 3, label: "Stress Scenarios" },
+        { value: 4, label: "Supported Base Currencies" },
+        { value: 3, label: "Satellite Asset Classes" },
+      ]
+    },
     who: {
       items: [
         { title: "Portfolio Managers", desc: "Rapidly prototype allocation structures, validate inputs against coherence checks, and export institutional-grade PDF reports." },
         { title: "Independent Advisors", desc: "Build client-specific ETF portfolios with full rationale documentation. Compare scenarios side by side and stress-test against 2008, COVID, and 2022 rate shocks." },
         { title: "Sophisticated Private Investors", desc: "Move beyond generic model portfolios. Define your own constraints, understand the mechanics of your allocation, and make decisions backed by risk metrics — not gut feel." },
+      ]
+    },
+    howItWorks: {
+      heading: "How it works",
+      subheading: "Three steps from blank canvas to institutional-grade portfolio.",
+      steps: [
+        { num: "01", title: "Define", desc: "Set your constraints — base currency, investment horizon, risk appetite, equity target, number of ETFs, exchange preference, thematic tilt, and hedging." },
+        { num: "02", title: "Generate", desc: "Receive a fully structured allocation with ETF-level detail, asset class weights, geographic breakdown, and a plain-language rationale for every decision." },
+        { num: "03", title: "Analyse", desc: "Stress-test against historical crises, run Monte Carlo simulations, compare portfolios side by side, and export a professional PDF report." },
       ]
     },
     features: {
@@ -55,6 +91,11 @@ const translations = {
         { title: "Methodology", desc: "Rule-based, not AI. Every assumption and formula is documented — capital market assumptions, correlation matrix, look-through routing, FX hedging, withholding-tax drag, and Monte Carlo simulation. No live market data. Fully deterministic." },
       ]
     },
+    marquee: [
+      "Full Look-Through", "Currency Hedging", "Monte Carlo Simulation", "CVaR Analysis",
+      "Paginated PDF Reports", "Scenario Stress Tests", "Vast Allocation Breakdowns",
+      "Tail Realism", "Excel Exports", "Withholding Tax Drag",
+    ],
     output: {
       heading: "Structured output, not a spreadsheet.",
       desc: "Every portfolio generated includes a full breakdown across asset classes, regions, and instruments — with the rationale to back it up. Exportable as PDF for client presentations or investment committee review.",
@@ -116,11 +157,29 @@ const translations = {
       badgeCVar: "CVaR & Drawdown",
       badgeSideBySide: "Direktvergleich",
     },
+    stats: {
+      items: [
+        { value: 12, label: "Analysemodule" },
+        { value: 2000, label: "Monte-Carlo-Pfade" },
+        { value: 3, label: "Stressszenarien" },
+        { value: 4, label: "Basiswährungen" },
+        { value: 3, label: "Satelliten-Asset-Klassen" },
+      ]
+    },
     who: {
       items: [
         { title: "Portfoliomanager", desc: "Allokationsstrukturen schnell prototypisieren, Eingaben auf Kohärenz prüfen und institutionelle PDF-Berichte exportieren." },
         { title: "Unabhängige Berater", desc: "Kundenspezifische ETF-Portfolios mit vollständiger Begründung erstellen. Szenarien nebeneinander vergleichen und gegen 2008, COVID und den Zinsschock 2022 stresstesten." },
         { title: "Anspruchsvolle Privatanleger", desc: "Gehen Sie über generische Musterportfolios hinaus. Definieren Sie eigene Rahmenbedingungen, verstehen Sie die Mechanik Ihrer Allokation und treffen Sie Entscheidungen auf Basis von Risikokennzahlen." },
+      ]
+    },
+    howItWorks: {
+      heading: "So funktioniert es",
+      subheading: "Drei Schritte vom leeren Blatt zum institutionellen Portfolio.",
+      steps: [
+        { num: "01", title: "Definieren", desc: "Legen Sie Ihre Parameter fest — Basiswährung, Anlagehorizont, Risikobereitschaft, Aktienziel, ETF-Anzahl, Börsenpräferenz, thematische Ausrichtung und Absicherung." },
+        { num: "02", title: "Generieren", desc: "Erhalten Sie eine vollständig strukturierte Allokation mit ETF-Details, Asset-Klassen-Gewichten, geografischer Aufschlüsselung und einer klaren Begründung für jede Entscheidung." },
+        { num: "03", title: "Analysieren", desc: "Stresstesten Sie gegen historische Krisen, führen Sie Monte-Carlo-Simulationen durch, vergleichen Sie Portfolios und exportieren Sie einen professionellen PDF-Bericht." },
       ]
     },
     features: {
@@ -133,6 +192,11 @@ const translations = {
         { title: "Methodik", desc: "Regelbasiert, kein KI. Jede Annahme und Formel ist dokumentiert — Kapitalmarktannahmen, Korrelationsmatrix, Look-Through-Routing, FX-Absicherung, Quellensteuer-Drag und Monte-Carlo-Simulation. Keine Live-Marktdaten. Vollständig deterministisch." },
       ]
     },
+    marquee: [
+      "Vollständiger Look-Through", "Währungsabsicherung", "Monte-Carlo-Simulation", "CVaR-Analyse",
+      "Mehrseitige PDF-Berichte", "Szenario-Stresstests", "Umfangreiche Allokationsanalysen",
+      "Tail-Realism", "Excel-Exporte", "Quellensteuer-Drag",
+    ],
     output: {
       heading: "Strukturierter Output, kein Spreadsheet.",
       desc: "Jedes generierte Portfolio enthält eine vollständige Aufschlüsselung nach Asset-Klassen, Regionen und Instrumenten — mit der entsprechenden Begründung. Exportierbar als PDF für Kundenpräsentationen oder den Anlageausschuss.",
@@ -186,6 +250,7 @@ export default function Home() {
   const t = translations[lang];
   const appUrl = APP_URL;
   const methodologyUrl = "https://www.bicon.co/?tab=methodology";
+  const marqueeItems = [...t.marquee, ...t.marquee];
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden font-sans selection:bg-primary selection:text-background">
@@ -228,30 +293,24 @@ export default function Home() {
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
             {/* Left: Text */}
             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
               <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-6">
                 <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
                 {t.hero.badge}
               </motion.div>
-
               <motion.h1 variants={fadeIn} className="text-4xl md:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
                 {t.hero.h1line1}<br />
                 <span className="text-xl md:text-2xl xl:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{t.hero.h1line2}</span>
               </motion.h1>
-
               <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-4 leading-relaxed">
                 {t.hero.desc}
               </motion.p>
-
               <motion.p variants={fadeIn} className="text-xs text-muted-foreground/60 mb-8 italic">
                 {t.hero.disclaimer}
               </motion.p>
-
               <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-start gap-4">
                 <motion.a href={appUrl} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} animate={{ boxShadow: ["0 0 0px 0px hsl(var(--primary)/0)", "0 0 18px 4px hsl(var(--primary)/0.35)", "0 0 0px 0px hsl(var(--primary)/0)"] }} transition={{ scale: { type: "spring", stiffness: 400, damping: 17 }, boxShadow: { duration: 2.4, repeat: Infinity, ease: "easeInOut" } }} className="rounded-sm">
                   <Button size="lg" className="w-full sm:w-auto h-12 px-8 rounded-sm text-base">
@@ -266,8 +325,17 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Right: Screenshot with tabs */}
-            <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="relative">
+            {/* Right: Screenshot with floating animation */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
+              transition={{
+                opacity: { duration: 0.8, delay: 0.3 },
+                x: { duration: 0.8, delay: 0.3 },
+                y: { delay: 1.1, duration: 4, repeat: Infinity, ease: "easeInOut" }
+              }}
+              className="relative"
+            >
               <div className="flex gap-2 mb-3">
                 <button onClick={() => setActiveTab("build")} className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${activeTab === "build" ? "bg-primary text-background" : "bg-secondary text-muted-foreground hover:text-foreground"}`}>
                   {t.hero.tabBuild}
@@ -276,7 +344,6 @@ export default function Home() {
                   {t.hero.tabCompare}
                 </button>
               </div>
-
               <div className="relative shadow-2xl shadow-primary/10">
                 <div className="rounded-lg border border-border overflow-hidden">
                   <img
@@ -288,24 +355,20 @@ export default function Home() {
                 {activeTab === "build" && (
                   <>
                     <div className="absolute top-[-14px] right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
-                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                      {t.hero.badgeMonteCarlo}
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />{t.hero.badgeMonteCarlo}
                     </div>
                     <div className="absolute bottom-[-14px] left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
-                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                      {t.hero.badgeLookThrough}
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />{t.hero.badgeLookThrough}
                     </div>
                   </>
                 )}
                 {activeTab === "compare" && (
                   <>
                     <div className="absolute top-[-14px] right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
-                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                      {t.hero.badgeCVar}
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />{t.hero.badgeCVar}
                     </div>
                     <div className="absolute bottom-[-14px] left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
-                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                      {t.hero.badgeSideBySide}
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />{t.hero.badgeSideBySide}
                     </div>
                   </>
                 )}
@@ -315,7 +378,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Who it's for */}
+      {/* STAT COUNTER STRIP */}
+      <section className="py-12 px-6 border-t border-border bg-primary/5">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-4 text-center"
+          >
+            {t.stats.items.map((stat, i) => (
+              <motion.div key={i} variants={fadeIn} className="flex flex-col items-center gap-1">
+                <span className="text-3xl md:text-4xl font-bold text-primary tabular-nums">
+                  <StatCounter target={stat.value} duration={1.8} />
+                </span>
+                <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider leading-snug">{stat.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* WHO IT'S FOR */}
       <section className="py-16 px-6 border-t border-border bg-secondary/10">
         <div className="max-w-7xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -329,8 +414,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Four Core Features */}
-      <section id="features" className="py-24 px-6 border-t border-border">
+      {/* HOW IT WORKS */}
+      <section className="py-24 px-6 border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={staggerContainer}>
+            <motion.div variants={fadeIn} className="mb-16 text-center">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{t.howItWorks.heading}</h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t.howItWorks.subheading}</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 relative">
+              {/* Connecting lines (desktop only) */}
+              <div className="hidden md:block absolute top-10 left-[calc(33.3%-1rem)] right-[calc(33.3%-1rem)] h-px bg-gradient-to-r from-primary/30 via-primary/60 to-primary/30 z-0" />
+              {t.howItWorks.steps.map((step, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeIn}
+                  className="relative z-10 flex flex-col items-center text-center p-8 rounded-lg border border-border bg-card/40"
+                >
+                  <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mb-6">
+                    <span className="text-primary font-bold text-lg">{step.num}</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section id="features" className="py-24 px-6 border-t border-border bg-secondary/10">
         <div className="max-w-7xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}>
             <motion.div variants={fadeIn} className="mb-16">
@@ -354,7 +468,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Portfolio Output Detail */}
+      {/* MARQUEE STRIP */}
+      <div className="border-y border-border bg-card/30 py-4 overflow-hidden">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {marqueeItems.map((item, i) => (
+            <span key={i} className="inline-flex items-center gap-3 mx-6 text-sm font-medium text-muted-foreground">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* OUTPUT */}
       <section id="output" className="py-24 px-6 border-t border-border bg-secondary/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -397,7 +523,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Methodology */}
+      {/* METHODOLOGY */}
       <section id="methodology" className="py-24 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
@@ -413,7 +539,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Advisory CTA */}
+      {/* ADVISORY CTA */}
       <section className="py-20 px-6 border-t border-border bg-primary/5">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
@@ -429,7 +555,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Footer CTA */}
+      {/* FOOTER CTA */}
       <footer className="border-t border-border bg-card/50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]" />
         <div className="max-w-7xl mx-auto px-6 py-24 relative z-10 text-center">
