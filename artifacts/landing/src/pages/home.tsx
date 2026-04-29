@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Activity, BarChart2, Layers, ChevronRight, Target, BookOpen, GitCompare, HelpCircle, TrendingUp, Globe } from "lucide-react";
+import { ArrowRight, Activity, BarChart2, Layers, ChevronRight, Target, BookOpen, GitCompare, HelpCircle, TrendingUp, Globe, FileText, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const fadeIn = {
@@ -26,18 +26,23 @@ export default function Home() {
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
               <Activity className="w-4 h-4 text-background" />
             </div>
-            <span className="font-bold text-lg tracking-tight">Investment Decision Lab</span>
+            <span className="font-bold text-base tracking-tight">Investment Decision Lab</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
-            <a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a>
+            <a href="#output" className="hover:text-foreground transition-colors">Output</a>
             <a href="#methodology" className="hover:text-foreground transition-colors">Methodology</a>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <a href={`${APP_URL}/#book`} target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
+              <Button variant="ghost" className="text-sm gap-2">
+                <Phone className="w-4 h-4" /> Book a call
+              </Button>
+            </a>
             <a href={APP_URL} target="_blank" rel="noopener noreferrer">
               <Button className="rounded-sm font-medium">Open the Lab</Button>
             </a>
@@ -63,12 +68,12 @@ export default function Home() {
             </motion.div>
 
             <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
-              Build the portfolio <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">your future deserves.</span>
+              Institutional-grade <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">portfolio construction.</span>
             </motion.h1>
 
             <motion.p variants={fadeIn} className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              Investment Decision Lab helps you construct, compare, and understand ETF portfolios tailored to your risk appetite, investment horizon, and preferred exchange. Built for Swiss and European investors who demand clarity over complexity.
+              Investment Decision Lab gives investment professionals and sophisticated private investors a structured, rules-based environment to construct, stress-test, and compare ETF portfolios — with full transparency into every allocation decision.
             </motion.p>
 
             <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-4">
@@ -99,20 +104,57 @@ export default function Home() {
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
               <div className="ml-4 text-xs font-mono text-muted-foreground">
-                Investment Decision Lab — Build Portfolio
+                Investment Decision Lab — Portfolio Analysis
               </div>
             </div>
             <img
               src="/app-preview.png"
-              alt="Investment Decision Lab interface"
+              alt="Investment Decision Lab — portfolio comparison and risk analysis"
               className="w-full h-auto object-cover"
             />
           </motion.div>
         </div>
       </section>
 
-      {/* 2. Four Core Features */}
-      <section id="features" className="py-24 px-6 border-t border-border bg-secondary/20">
+      {/* 2. Who it's for */}
+      <section className="py-16 px-6 border-t border-border bg-secondary/10">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {[
+              {
+                title: "Portfolio Managers",
+                desc: "Rapidly prototype allocation structures, validate inputs against coherence checks, and export institutional-grade PDF reports for investment committees."
+              },
+              {
+                title: "Independent Advisors",
+                desc: "Build client-specific ETF portfolios with full rationale documentation. Compare scenarios side by side and stress-test against 2008, COVID, and 2022 rate shocks."
+              },
+              {
+                title: "Sophisticated Private Investors",
+                desc: "Move beyond generic model portfolios. Define your own constraints, understand the mechanics of your allocation, and make decisions backed by risk metrics — not gut feel."
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeIn}
+                className="p-6 rounded-lg border border-border/50 bg-card/30"
+              >
+                <h3 className="font-bold text-lg mb-3">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 3. Four Core Features */}
+      <section id="features" className="py-24 px-6 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
@@ -121,8 +163,8 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeIn} className="mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Four tools. One clear outcome.</h2>
-              <p className="text-muted-foreground text-lg max-w-2xl">Everything you need to go from a blank slate to a confident, well-structured portfolio.</p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Four analytical modules.</h2>
+              <p className="text-muted-foreground text-lg max-w-2xl">Covering the full decision cycle from construction to explanation.</p>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -130,25 +172,25 @@ export default function Home() {
                 {
                   icon: Layers,
                   title: "Build Portfolio",
-                  desc: "Set your base currency, investment horizon, risk appetite, and target equity allocation. Choose your preferred exchange, number of ETFs, and apply optional thematic tilts. The Lab generates a structured portfolio with detailed ETF selection and rationale.",
+                  desc: "Define your constraints: base currency (CHF and others), investment horizon, risk appetite, target equity allocation, number of ETFs, preferred exchange (SIX Zürich and others), thematic tilt, currency hedging, and synthetic ETF inclusion. Inputs are validated against structural coherence checks before a portfolio is generated.",
                   highlight: true
                 },
                 {
                   icon: GitCompare,
                   title: "Compare Portfolios",
-                  desc: "Put multiple portfolio scenarios side by side. Adjust parameters across configurations and immediately see how allocation, risk profile, and ETF composition shift. Decision-making through direct comparison.",
+                  desc: "Place two portfolios side by side with full analytical depth — geographic allocation breakdown, risk and performance metrics (expected return, volatility, Sharpe ratio, max drawdown), deterministic scenario stress tests (2008 Financial Crisis, 2020 COVID Crash, 2022 Rates Shock), and Monte Carlo simulation.",
                   highlight: false
                 },
                 {
                   icon: HelpCircle,
                   title: "Explain My Portfolio",
-                  desc: "Get a plain-language breakdown of why your portfolio is structured the way it is. Understand the rationale behind each allocation decision, the role of each ETF, and how the overall mix reflects your stated preferences.",
+                  desc: "Every allocation decision comes with a plain-language explanation of why each ETF is included, what role it plays in the portfolio, and how the overall structure reflects your stated parameters. No black boxes.",
                   highlight: false
                 },
                 {
                   icon: BookOpen,
                   title: "Methodology",
-                  desc: "Full transparency into how the Lab makes decisions. Read the underlying investment principles, data sources, weighting logic, and assumptions that power every portfolio recommendation.",
+                  desc: "Full transparency into the rules and assumptions underlying every recommendation — capital market assumptions, correlation matrix, asset class definitions, ETF selection criteria, exchange preference logic, and rebalancing principles.",
                   highlight: false
                 }
               ].map((feature, i) => (
@@ -170,10 +212,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Portfolio Parameters */}
-      <section id="how-it-works" className="py-24 px-6">
+      {/* 4. Portfolio Output Detail */}
+      <section id="output" className="py-24 px-6 border-t border-border bg-secondary/20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -181,22 +223,21 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Your inputs. Your portfolio.
+                Structured output, not a spreadsheet.
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
-                The Lab takes your constraints and preferences and builds a portfolio around them — not a generic template. Every parameter you set shapes the final output.
+                Every portfolio generated includes a full breakdown across asset classes, regions, and instruments — with the rationale to back it up. Exportable as PDF for client presentations or investment committee review.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-4 mb-8">
                 {[
-                  { label: "Base Currency", detail: "CHF, EUR, USD and more" },
-                  { label: "Investment Horizon", detail: "From 1 to 30+ years" },
-                  { label: "Risk Appetite", detail: "Low · Moderate · High · Very High" },
-                  { label: "Target Equity Allocation", detail: "Slider-controlled, from 0% to 100%" },
-                  { label: "Number of ETFs", detail: "Auto-optimized or manually specified" },
-                  { label: "Preferred Exchange", detail: "SIX Zürich and other European exchanges" },
-                  { label: "Thematic Tilt", detail: "Optional focus areas like ESG, Technology, and more" },
-                  { label: "Currency Hedging", detail: "Hedge foreign exposure to reduce FX risk" },
-                  { label: "Synthetic ETFs", detail: "Opt in to swap-based replication for tax efficiency" }
+                  { label: "Investor Profile Summary", detail: "Currency, risk, horizon, equity target, ETF count" },
+                  { label: "Target Asset Allocation", detail: "Cash, Bonds, Equities, Satellites with precise weights" },
+                  { label: "Geographic Breakdown", detail: "US, Swiss, European, EM, Japan, UK equity exposure" },
+                  { label: "Allocation by Bucket", detail: "Per-ETF holdings table with asset class and region" },
+                  { label: "Risk & Performance Metrics", detail: "Expected return, volatility, Sharpe ratio, max drawdown" },
+                  { label: "Scenario Stress Tests", detail: "2008 Financial Crisis · 2020 COVID Crash · 2022 Rates Shock" },
+                  { label: "Monte Carlo Simulation", detail: "Probabilistic range of outcomes over your investment horizon" },
+                  { label: "PDF Export", detail: "Standard report and detailed institutional-grade PDF" }
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
                     <ChevronRight className="w-5 h-5 text-primary shrink-0 mt-0.5" />
@@ -207,6 +248,13 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <div className="flex items-center gap-3">
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+                  <Button className="rounded-sm gap-2">
+                    <FileText className="w-4 h-4" /> Try it now
+                  </Button>
+                </a>
+              </div>
             </motion.div>
 
             <motion.div
@@ -217,10 +265,10 @@ export default function Home() {
               className="grid grid-cols-2 gap-4"
             >
               {[
-                { icon: TrendingUp, title: "Risk-Adjusted", desc: "Portfolios calibrated to your stated risk appetite and time horizon." },
-                { icon: Globe, title: "Swiss & EU Focus", desc: "Exchange options centred on SIX Zürich and major European markets." },
-                { icon: BarChart2, title: "Scenario Saving", desc: "Save portfolio configurations and revisit them at any time." },
-                { icon: Target, title: "Transparent Rationale", desc: "Every ETF selection comes with a clear explanation of why it's included." }
+                { icon: TrendingUp, title: "Rules-based", desc: "Every portfolio follows a consistent, documented set of construction rules — not discretionary judgement." },
+                { icon: Globe, title: "Swiss & EU focus", desc: "SIX Zürich as preferred exchange, CHF as default currency. Optimised for the Swiss and European investor." },
+                { icon: BarChart2, title: "Scenario-tested", desc: "Portfolios are stress-tested against three major historical crises before you commit to a structure." },
+                { icon: Target, title: "Coherence-validated", desc: "Inputs are checked for structural coherence before any portfolio is generated. No silent errors." }
               ].map((card, i) => (
                 <motion.div
                   key={i}
@@ -240,8 +288,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Methodology */}
-      <section id="methodology" className="py-24 px-6 border-t border-border bg-secondary/20">
+      {/* 5. Methodology */}
+      <section id="methodology" className="py-24 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -250,30 +298,53 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <BookOpen className="w-10 h-10 text-primary mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Built on transparent methodology</h2>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              The Lab doesn't hide its logic. Every portfolio recommendation follows a published methodology covering allocation principles, ETF selection criteria, exchange preferences, and rebalancing guidelines. Open the Methodology tab inside the app to read exactly how your portfolio was built.
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Transparent by design</h2>
+            <p className="text-muted-foreground text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
+              Every recommendation is backed by a published methodology — covering capital market assumptions, fixed correlation matrices, ETF selection criteria, exchange preferences, and rebalancing logic. Open the Methodology tab to read exactly how your portfolio was constructed.
             </p>
             <a href={APP_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="rounded-sm border-border">
-                Read the Methodology <ArrowRight className="ml-2 w-4 h-4" />
+              <Button variant="outline" className="rounded-sm border-border gap-2">
+                <BookOpen className="w-4 h-4" /> Read the Methodology
               </Button>
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* 5. CTA Footer */}
+      {/* 6. Advisory CTA */}
+      <section className="py-20 px-6 border-t border-border bg-primary/5">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">Need a guided walkthrough?</h2>
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+              Book a 30-minute call with the BCon team to walk through the tool, discuss your specific portfolio requirements, or explore how the methodology applies to your situation.
+            </p>
+            <a href={`${APP_URL}`} target="_blank" rel="noopener noreferrer">
+              <Button className="rounded-sm gap-2 h-12 px-8">
+                <Phone className="w-4 h-4" /> Book a 30-min call
+              </Button>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 7. Footer CTA */}
       <footer className="border-t border-border bg-card/50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]" />
         <div className="max-w-7xl mx-auto px-6 py-24 relative z-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to build your portfolio?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to build a better portfolio?</h2>
           <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
-            Set your parameters, generate your portfolio, and get a full explanation of every decision — in English or German.
+            Set your constraints, generate a structured allocation, stress-test it against historical crises, and export a professional PDF — in minutes.
           </p>
           <a href={APP_URL} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="h-14 px-10 text-lg rounded-sm bg-primary text-primary-foreground hover:bg-primary/90">
-              Open Investment Decision Lab <ArrowRight className="ml-2 w-5 h-5" />
+            <Button size="lg" className="h-14 px-10 text-lg rounded-sm gap-2">
+              Open Investment Decision Lab <ArrowRight className="w-5 h-5" />
             </Button>
           </a>
 
@@ -284,7 +355,8 @@ export default function Home() {
               <span className="ml-4">&copy; {new Date().getFullYear()}</span>
             </div>
             <div className="flex gap-6">
-              <a href={`${APP_URL}#methodology`} className="hover:text-foreground transition-colors">Methodology</a>
+              <a href={`${APP_URL}`} className="hover:text-foreground transition-colors">Methodology</a>
+              <a href={`${APP_URL}`} className="hover:text-foreground transition-colors">Book a Call</a>
             </div>
           </div>
         </div>
