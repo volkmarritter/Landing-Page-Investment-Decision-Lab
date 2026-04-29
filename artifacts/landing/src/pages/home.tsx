@@ -32,7 +32,7 @@ export default function Home() {
             </div>
             <div>
               <span className="font-bold text-base tracking-tight">Investment Decision Lab</span>
-              <span className="hidden md:inline ml-2 text-xs text-muted-foreground">A <a href="https://www.bicon.li" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors underline underline-offset-2">BCon</a> Initiative</span>
+              <span className="hidden md:inline ml-2 text-xs text-muted-foreground">A <a href="https://www.bicon.li" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors underline underline-offset-2">BICon</a> Initiative</span>
             </div>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
@@ -326,7 +326,7 @@ export default function Home() {
             <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">Need a guided walkthrough?</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Book a 30-minute call with the BCon team to walk through the tool, discuss your specific portfolio requirements, or explore how the methodology applies to your situation.
+              Book a 30-minute call with the BICon team to walk through the tool, discuss your specific portfolio requirements, or explore how the methodology applies to your situation.
             </p>
             <a href={`${APP_URL}`} target="_blank" rel="noopener noreferrer">
               <Button className="rounded-sm gap-2 h-12 px-8">
@@ -355,7 +355,7 @@ export default function Home() {
             <div className="flex items-center gap-2 mb-4 md:mb-0">
               <Activity className="w-4 h-4" />
               <span className="font-bold tracking-tight">Investment Decision Lab</span>
-              <span className="text-xs ml-2">A <a href="https://www.bicon.li" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors underline underline-offset-2">BCon</a> Initiative</span>
+              <span className="text-xs ml-2">A <a href="https://www.bicon.li" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors underline underline-offset-2">BICon</a> Initiative</span>
               <span className="ml-4">&copy; {new Date().getFullYear()}</span>
             </div>
             <div className="flex gap-6">
