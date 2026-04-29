@@ -76,7 +76,7 @@ export default function Home() {
             </motion.h1>
 
             <motion.p variants={fadeIn} className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              Investment Decision Lab gives investment professionals and sophisticated private investors a structured, rules-based environment to construct, stress-test, and compare ETF portfolios — with full transparency into every allocation decision.
+              Investment Decision Lab gives investment professionals and sophisticated private investors a structured, rules-based environment to construct, stress-test, and compare ETF portfolios — with deep risk analysis, Monte Carlo simulation, and full transparency into every allocation decision.
             </motion.p>
 
             <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-4">
