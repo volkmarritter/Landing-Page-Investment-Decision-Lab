@@ -17,7 +17,7 @@ const staggerContainer = {
   }
 };
 
-const APP_URL = "https://attached-assets-volkmarritter.replit.app/";
+const APP_URL = "https://bicon.co";
 
 export default function Home() {
   return (
