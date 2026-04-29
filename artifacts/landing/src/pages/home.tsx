@@ -27,7 +27,7 @@ const translations = {
     hero: {
       badge: "Professional portfolio construction & analysis",
       h1line1: "Institutional-grade portfolio construction and analysis",
-      h1line2: "for the European investor (incl. CH & UK).",
+      h1line2: "for the European investor (CH · EU · UK).",
       desc: "A structured, rules-based environment to construct, stress-test, and compare ETF portfolios — with deep risk analysis, Monte Carlo simulation, and full transparency into every allocation decision.",
       disclaimer: "For educational and illustration purposes only. Not investment advice.",
       viewMethodology: "View Methodology",
@@ -105,7 +105,7 @@ const translations = {
     hero: {
       badge: "Professionelle Portfoliokonstruktion & Analyse",
       h1line1: "Institutionelle Portfoliokonstruktion und -analyse",
-      h1line2: "für den europäischen Investor (inkl. CH & UK).",
+      h1line2: "für den europäischen Investor (CH · EU · UK).",
       desc: "Eine strukturierte, regelbasierte Umgebung zum Aufbau, Stresstesting und Vergleich von ETF-Portfolios — mit tiefgehender Risikoanalyse, Monte-Carlo-Simulation und vollständiger Transparenz bei jeder Allokationsentscheidung.",
       disclaimer: "Nur für Bildungs- und Illustrationszwecke. Keine Anlageberatung.",
       viewMethodology: "Methodik ansehen",
