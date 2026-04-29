@@ -193,7 +193,7 @@ export default function Home() {
                 {
                   icon: BookOpen,
                   title: "Methodology",
-                  desc: "Full transparency into the rules and assumptions underlying every recommendation — capital market assumptions, correlation matrix, asset class definitions, ETF selection criteria, exchange preference logic, and rebalancing principles.",
+                  desc: "Rule-based, not AI. Every assumption and formula is documented — capital market assumptions, correlation matrix, look-through routing, FX hedging, withholding-tax drag, and Monte Carlo simulation. No live market data. Fully deterministic.",
                   highlight: false
                 }
               ].map((feature, i) => (
@@ -303,7 +303,7 @@ export default function Home() {
             <BookOpen className="w-10 h-10 text-primary mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Transparent by design</h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
-              Every recommendation is backed by a published methodology — covering capital market assumptions, fixed correlation matrices, ETF selection criteria, exchange preferences, and rebalancing logic. Open the Methodology tab to read exactly how your portfolio was constructed.
+              The app is intentionally rule-based and offline — no AI, no live market data, no probabilistic optimiser. Every assumption, formula, and source is documented: capital market assumptions, correlation matrix, look-through routing, FX hedging, withholding-tax drag, and an optional Monte Carlo projection. Identical inputs always yield identical outputs.
             </p>
             <a href="https://www.bicon.co/?tab=methodology" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="rounded-sm border-border gap-2">
