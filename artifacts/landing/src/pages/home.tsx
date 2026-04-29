@@ -184,8 +184,8 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<"build" | "compare">("build");
   const [lang, setLang] = useState<"en" | "de">("en");
   const t = translations[lang];
-  const appUrl = lang === "de" ? `${APP_URL}/?lang=de` : APP_URL;
-  const methodologyUrl = lang === "de" ? "https://www.bicon.co/?tab=methodology&lang=de" : "https://www.bicon.co/?tab=methodology";
+  const appUrl = APP_URL;
+  const methodologyUrl = "https://www.bicon.co/?tab=methodology";
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden font-sans selection:bg-primary selection:text-background">
