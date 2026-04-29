@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "8sIKV6jYvSF6L2ugOuZmy"
@@ -12,3 +11,9 @@ id = "pZ4utAfbmwWj2T43fEjZg"
 uri = "file://artifacts/landing/public/scenario-ui.png"
 type = "image"
 title = "Scenario analysis interface mockup"
+
+[[outputs]]
+id = "i-LfRFLuY_jWQNfEoVysg"
+uri = "file://artifacts/landing/public/logo.svg"
+type = "image"
+title = "Investment Decision Lab Logo (SVG)"
