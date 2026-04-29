@@ -17,7 +17,7 @@ const staggerContainer = {
   }
 };
 
-const APP_URL = "https://bicon.co";
+const APP_URL = "https://www.bicon.co";
 
 export default function Home() {
   return (
