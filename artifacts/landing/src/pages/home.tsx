@@ -32,7 +32,7 @@ export default function Home() {
             </div>
             <div>
               <span className="font-bold text-base tracking-tight">Investment Decision Lab</span>
-              <span className="hidden md:inline ml-2 text-xs text-muted-foreground">A BCon Initiative</span>
+              <span className="hidden md:inline ml-2 text-xs text-muted-foreground">A <a href="https://www.bicon.li" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors underline underline-offset-2">BCon</a> Initiative</span>
             </div>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
@@ -355,7 +355,7 @@ export default function Home() {
             <div className="flex items-center gap-2 mb-4 md:mb-0">
               <Activity className="w-4 h-4" />
               <span className="font-bold tracking-tight">Investment Decision Lab</span>
-              <span className="text-xs ml-2">A BCon Initiative</span>
+              <span className="text-xs ml-2">A <a href="https://www.bicon.li" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors underline underline-offset-2">BCon</a> Initiative</span>
               <span className="ml-4">&copy; {new Date().getFullYear()}</span>
             </div>
             <div className="flex gap-6">
