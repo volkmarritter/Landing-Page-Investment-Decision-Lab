@@ -273,7 +273,7 @@ export default function Home() {
                 { icon: BarChart2, title: "Scenario-tested", desc: "Portfolios are stress-tested against three major historical crises before you commit to a structure." },
                 { icon: Target, title: "Coherence-validated", desc: "Inputs are checked for structural coherence before any portfolio is generated. No silent errors." },
                 { icon: TrendingUp, title: "Monte Carlo Simulation", desc: "Project portfolio outcomes across thousands of simulated paths. Visualise return distributions, drawdown risk, and probability of meeting your investment goals." },
-                { icon: Layers, title: "Full Look-Through", desc: "Allocations are decomposed through ETF holdings to the underlying asset class and geographic exposure — pie charts and breakdowns reflect true portfolio composition." }
+                { icon: Layers, title: "Full Look-Through", desc: "Allocations are decomposed through ETF holdings to the underlying asset class and geographic exposure — applied across all risk calculations, stress tests, and portfolio breakdowns." }
               ].map((card, i) => (
                 <motion.div
                   key={i}
