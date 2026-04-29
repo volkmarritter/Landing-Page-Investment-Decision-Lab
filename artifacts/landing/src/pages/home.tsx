@@ -241,7 +241,7 @@ export default function Home() {
 
               <motion.h1 variants={fadeIn} className="text-4xl md:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
                 {t.hero.h1line1}<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{t.hero.h1line2}</span>
+                <span className="text-xl md:text-2xl xl:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{t.hero.h1line2}</span>
               </motion.h1>
 
               <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-4 leading-relaxed">
