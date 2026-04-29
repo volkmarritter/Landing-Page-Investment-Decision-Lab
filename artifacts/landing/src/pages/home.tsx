@@ -98,17 +98,25 @@ export default function Home() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-20 relative rounded-lg border border-border overflow-hidden shadow-2xl shadow-primary/5"
+            className="mt-20 relative shadow-2xl shadow-primary/5"
           >
-            <img
-              src="/app-preview.png"
-              alt="Investment Decision Lab — portfolio comparison and risk analysis"
-              className="w-full h-auto object-cover"
-            />
-            <div className="absolute top-4 left-4 px-3 py-2 rounded-md bg-background/90 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg">
+            <div className="rounded-lg border border-border overflow-hidden">
+              <img
+                src="/app-preview.png"
+                alt="Investment Decision Lab — portfolio comparison and risk analysis"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <div className="absolute top-[-12px] left-4 px-3 py-2 rounded-md bg-background/90 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg">
               Monte Carlo Simulation
             </div>
-            <div className="absolute bottom-4 right-4 px-3 py-2 rounded-md bg-background/90 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg">
+            <div className="absolute top-[-12px] right-4 px-3 py-2 rounded-md bg-background/90 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg">
+              3 Stress Tests
+            </div>
+            <div className="absolute bottom-[-12px] left-4 px-3 py-2 rounded-md bg-background/90 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg">
+              Save Scenarios
+            </div>
+            <div className="absolute bottom-[-12px] right-4 px-3 py-2 rounded-md bg-background/90 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg">
               Full Look-Through
             </div>
           </motion.div>
