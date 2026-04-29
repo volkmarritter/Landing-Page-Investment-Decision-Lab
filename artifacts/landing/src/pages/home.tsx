@@ -26,7 +26,7 @@ const translations = {
     },
     hero: {
       badge: "Professional portfolio construction & analysis",
-      h1line1: "Institutional-grade portfolio construction",
+      h1line1: "Institutional-grade portfolio construction and analysis",
       h1line2: "for the European investor.",
       desc: "A structured, rules-based environment to construct, stress-test, and compare ETF portfolios — with deep risk analysis, Monte Carlo simulation, and full transparency into every allocation decision.",
       disclaimer: "For educational and illustration purposes only. Not investment advice.",
