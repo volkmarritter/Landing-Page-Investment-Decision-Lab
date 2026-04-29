@@ -269,7 +269,7 @@ export default function Home() {
             >
               {[
                 { icon: TrendingUp, title: "Rules-based", desc: "Every portfolio follows a consistent, documented set of construction rules — not discretionary judgement." },
-                { icon: Globe, title: "European focus (CH · EU · UK)", desc: "SIX Zürich as preferred exchange, CHF as default currency. Optimised for Swiss, EU, and UK investors — with home-bias multipliers and withholding-tax drag per base currency." },
+                { icon: Globe, title: "European focus (CH · EU · UK)", desc: "Optimised for Swiss, EU, and UK investors — with home-bias multipliers and withholding-tax drag per base currency." },
                 { icon: BarChart2, title: "Scenario-tested", desc: "Portfolios are stress-tested against three major historical crises before you commit to a structure." },
                 { icon: Target, title: "Coherence-validated", desc: "Inputs are checked for structural coherence before any portfolio is generated. No silent errors." }
               ].map((card, i) => (
