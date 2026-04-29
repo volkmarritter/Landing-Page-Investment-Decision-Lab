@@ -104,7 +104,7 @@ const translations = {
     },
     hero: {
       badge: "Professionelle Portfoliokonstruktion & Analyse",
-      h1line1: "ETF portfolio construction",
+      h1line1: "Institutional-grade portfolio construction and analysis",
       h1line2: "for the European investor.",
       desc: "Eine strukturierte, regelbasierte Umgebung zum Aufbau, Stresstesting und Vergleich von ETF-Portfolios — mit tiefgehender Risikoanalyse, Monte-Carlo-Simulation und vollständiger Transparenz bei jeder Allokationsentscheidung.",
       disclaimer: "Nur für Bildungs- und Illustrationszwecke. Keine Anlageberatung.",
