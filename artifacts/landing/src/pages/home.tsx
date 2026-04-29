@@ -98,18 +98,8 @@ export default function Home() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-20 relative rounded-lg border border-border bg-card overflow-hidden shadow-2xl shadow-primary/5"
+            className="mt-20 relative rounded-lg border border-border overflow-hidden shadow-2xl shadow-primary/5"
           >
-            <div className="absolute top-0 left-0 right-0 h-10 border-b border-border bg-secondary/50 flex items-center px-4 gap-2">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-destructive/80" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <div className="w-3 h-3 rounded-full bg-green-500/80" />
-              </div>
-              <div className="ml-4 text-xs font-mono text-muted-foreground">
-                Investment Decision Lab — Portfolio Analysis
-              </div>
-            </div>
             <img
               src="/app-preview.png"
               alt="Investment Decision Lab — portfolio comparison and risk analysis"
