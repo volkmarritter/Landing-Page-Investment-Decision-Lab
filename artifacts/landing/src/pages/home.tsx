@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { ArrowRight, Activity, BarChart2, Layers, ChevronRight, Target, BookOpen, GitCompare, HelpCircle, TrendingUp, Globe, FileText, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -20,6 +21,8 @@ const staggerContainer = {
 const APP_URL = "https://www.bicon.co";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<"build" | "compare">("build");
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden font-sans selection:bg-primary selection:text-background">
 
@@ -54,68 +57,109 @@ export default function Home() {
       </nav>
 
       {/* 1. Hero */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="max-w-3xl"
-          >
-            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-6">
-              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-              Professional portfolio construction &amp; analysis
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            {/* Left: Text */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-6">
+                <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
+                Professional portfolio construction &amp; analysis
+              </motion.div>
+
+              <motion.h1 variants={fadeIn} className="text-4xl md:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+                ETF portfolio construction<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">for the European investor.</span>
+              </motion.h1>
+
+              <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-4 leading-relaxed">
+                A structured, rules-based environment to construct, stress-test, and compare ETF portfolios — with deep risk analysis, Monte Carlo simulation, and full transparency into every allocation decision.
+              </motion.p>
+
+              <motion.p variants={fadeIn} className="text-xs text-muted-foreground/60 mb-8 italic">
+                For educational and illustration purposes only. Not investment advice.
+              </motion.p>
+
+              <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-start gap-4">
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="w-full sm:w-auto h-12 px-8 rounded-sm text-base">
+                    Open the Lab <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </a>
+                <a href="https://www.bicon.co/?tab=methodology" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 rounded-sm text-base border-border hover:bg-secondary">
+                    View Methodology
+                  </Button>
+                </a>
+              </motion.div>
             </motion.div>
 
-            <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
-              Institutional-grade <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">portfolio construction.</span>
-            </motion.h1>
+            {/* Right: Screenshot with tabs */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative"
+            >
+              {/* Tab switcher */}
+              <div className="flex gap-2 mb-3">
+                <button
+                  onClick={() => setActiveTab("build")}
+                  className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${activeTab === "build" ? "bg-primary text-background" : "bg-secondary text-muted-foreground hover:text-foreground"}`}
+                >
+                  Build Portfolio
+                </button>
+                <button
+                  onClick={() => setActiveTab("compare")}
+                  className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${activeTab === "compare" ? "bg-primary text-background" : "bg-secondary text-muted-foreground hover:text-foreground"}`}
+                >
+                  Compare &amp; Risk Analysis
+                </button>
+              </div>
 
-            <motion.p variants={fadeIn} className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              Investment Decision Lab gives investment professionals and sophisticated private investors a structured, rules-based environment to construct, stress-test, and compare ETF portfolios — with deep risk analysis, Monte Carlo simulation, and full transparency into every allocation decision.
-            </motion.p>
-
-            <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-4">
-              <a href={APP_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="w-full sm:w-auto h-12 px-8 rounded-sm text-base">
-                  Open the Lab <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </a>
-              <a href="https://www.bicon.co/?tab=methodology" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 rounded-sm text-base border-border hover:bg-secondary">
-                  View Methodology
-                </Button>
-              </a>
+              <div className="relative shadow-2xl shadow-primary/10">
+                <div className="rounded-lg border border-border overflow-hidden">
+                  <img
+                    src={activeTab === "build" ? "/app-preview.png" : "/app-preview-2.png"}
+                    alt={activeTab === "build" ? "Build Portfolio view" : "Compare Portfolios — Monte Carlo and risk metrics"}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                {activeTab === "build" && (
+                  <>
+                    <div className="absolute top-[-14px] right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                      Monte Carlo Simulation
+                    </div>
+                    <div className="absolute bottom-[-14px] left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                      Full Look-Through
+                    </div>
+                  </>
+                )}
+                {activeTab === "compare" && (
+                  <>
+                    <div className="absolute top-[-14px] right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                      CVaR &amp; Drawdown
+                    </div>
+                    <div className="absolute bottom-[-14px] left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                      Side-by-Side Comparison
+                    </div>
+                  </>
+                )}
+              </div>
             </motion.div>
-          </motion.div>
-
-          {/* App Screenshot */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-20 relative shadow-2xl shadow-primary/5"
-          >
-            <div className="rounded-lg border border-border overflow-hidden">
-              <img
-                src="/app-preview.png"
-                alt="Investment Decision Lab — portfolio comparison and risk analysis"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div className="absolute top-[-14px] right-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
-              <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-              Monte Carlo Simulation
-            </div>
-            <div className="absolute bottom-[-14px] left-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-xs font-semibold shadow-xl border border-gray-100">
-              <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-              Full Look-Through
-            </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
